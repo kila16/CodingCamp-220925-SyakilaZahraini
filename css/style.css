@@ -1,0 +1,14 @@
+.logo {
+    height: 75px;
+    background-color: lightskyblue;
+    width: 75px;
+    border-radius: 50%;
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/c/cf/Logo_enhypen.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.main-header {
+    display: flex;
+    justify-content: space-between;
+}
