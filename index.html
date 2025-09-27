@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio - Syakila</title>
+    <title>Syakila first project</title>
  
     <!-- Favicon -->
     <link rel="icon" type="syakila.jpg" href="syakila.jpg">
@@ -13,103 +13,326 @@
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    
+    <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    .font-robot {
+      font-family: 'Orbitron', sans-serif;
+      letter-spacing: 2px;
+    }
+    .font-fun {
+      font-family: 'Comic Neue', cursive;
+    }
+  </style>
+
 </head>
+<body class="bg-black text-white">
 
-<body>
-    <!-- Header Content -->
-    <header class="main-header">
-        <!-- Logo Website -->
-        <div class="logo"></div>
-        <!-- Navigation Menu -->
-        <nav>
-            <ul class="flex h-[100%] items-center gap-[8px]">
-                <li><a class="border p-[8px] rounded" href="#about">Home</a></li>
-                <li><a class="border p-[8px] rounded" href="#profile">My Profile</a></li>
-                <li><a class="border p-[8px] rounded" href="#projects">Portofolio</a></li>
-                <li><a class="border p-[8px] rounded" href="#Contact">Messege Us</a></li>
-            </ul>
-        </nav>
-    </header>
+<!-- Header Content -->
+<header class="main-header sticky top-0 bg-gradient-to-r from-sky-400 to-blue-500 shadow-md px-6 py-4 flex justify-between items-center z-50">
+  <!-- Logo Website -->
+  <div class="logo w-[50px] h-[50px] rounded-full bg-cover bg-center border-2 border-white shadow-md" style="background-image: url('images/syakila.jpg');"></div>
+  
+  <!-- Navigation Menu -->
+  <nav>
+    <ul class="flex gap-4">
+      <li><a class="px-4 py-2 rounded-md text-white hover:bg-white hover:text-blue-600 transition" href="#about">Home</a></li>
+      <li><a class="px-4 py-2 rounded-md text-white hover:bg-white hover:text-blue-600 transition" href="#profile">My Profile</a></li>
+      <li><a class="px-4 py-2 rounded-md text-white hover:bg-white hover:text-blue-600 transition" href="#projects">Portfolio</a></li>
+      <li><a class="px-4 py-2 rounded-md text-white hover:bg-white hover:text-blue-600 transition" href="#contact">Message Us</a></li>
+    </ul>
+  </nav>
+</header>
 
-   <hr>
+<script>
+let lastScrollTop = 0;
+const header = document.querySelector('.main-header');
 
-    <!-- Main Content -->
-    <main>
-        <!-- Home Section -->
-        <section id="about" class="min-h-[100vh] flex flex-col justify-center items-center gap-[16px]">
-            <h1 class="text-[32px] font-bold">Hello <span id="username"></span>, I'm Syakila Zahraini Cahyadi</h1>
-            <p class="text-[18px] text-center max-w-[600px]">Welcome to my personal website! I'm a passionate developer with a love for creating beautiful and functional web applications. Explore my portfolio to see some of my work and feel free to reach out if you'd like to collaborate!</p>
-            <a href="#profile" class="border p-[8px] rounded">View My Profile</a>
-        </section>
+window.addEventListener('scroll', () => {
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-        <hr>
+  if (scrollTop > lastScrollTop && scrollTop > 50) {
+    // Scroll ke bawah → sembunyikan header
+    header.style.transform = 'translateY(-100%)';
+  } else {
+    // Scroll ke atas → tampilkan header
+    header.style.transform = 'translateY(0)';
+  }
 
-        <!-- Profile Section -->
-        <section id="profile" class="min-h-[100vh] flex flex-col justify-center items-center gap-[16px]">
-            <h2 class="text-[28px] font-bold">My Profile</h2>
-            <div class="flex flex-col md:flex-row gap-[20px] items-center">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIvWO3vWqNKoX-ku_OT_1gtSnyce19lvjIvGQubM2rM_OSjEjACrN1Vg56wxHtaC76IHg&usqp=CAU" alt="This Is Me" class="w-[200px] h-[200px] rounded-full center object-cover">
-            <div class="max-w-[600px] text-center md:text-left">
-            <h3 class="text-[22px] font-semibold">Heesung - Enhypen</h3>
-            <p class="text-[14px] mt-[8px]">Heesung is a talented singer and dancer, known for his charismatic stage presence and powerful vocals. As a member of the popular K-pop group Enhypen, he has captivated audiences worldwide with his performances and charming personality.</p>
-            </div>
-            </div>
-       </section>
+  lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // untuk mobile
+});
+</script>
 
-  <hr>
+<style>
+.main-header {
+  transition: transform 0.3s ease-in-out;
+}
+</style>
 
-        <!-- Projects Section -->
-        <section id="projects" class="min-h-[100vh] flex flex-col justify-center items-center gap-[16px]">
-            <h2 class="text-[28px] font-bold">My Portfolio</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-[16px]">
-                <!-- Project 1 -->
-                <div class="border p-[16px] rounded">
-                    <h3 class="text-[20px] font-semibold mb-[8px]">Project Title 1</h3>
-                    <p class="text-[14px]">A brief description of the project goes here. Highlight the key features and technologies used.</p>
+<!-- Main Content -->
+  <main class="space-y-24">
+<!-- Home Section -->
+<section id="about" 
+  class="min-h-screen flex flex-col justify-center items-center text-center px-6 relative overflow-hidden"
+  style="background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);">
 
-                </div>
-                <!-- Project 2 -->
-                <div class="border p-[16px] rounded">
-                    <h3 class="text-[20px] font-semibold mb-[8px]">Project Title 2</h3>
-                    <p class="text-[14px]">A brief description of the project goes here. Highlight the key features and technologies used.</p>
+  <!-- Judul -->
+  <h1 class="text-[56px] font-extrabold font-robot 
+             bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-400 
+             bg-clip-text text-transparent drop-shadow-[0_0_18px_rgba(255,0,255,0.7)] z-10">
+    ✨ Hello <span id="username" class="text-yellow-300">Star</span> ✨
+  </h1>
 
-                </div>
-                <!-- Project 3 -->
-                <div class="border p-[16px] rounded">
-                    <h3 class="text-[20px] font-semibold mb-[8px]">Project Title 3</h3>
-                    <p class="text-[14px]">A brief description of the project goes here. Highlight the key features and technologies used.</p>
-                </div>
-        </section>
+  <!-- Subjudul -->
+  <h2 class="text-[28px] mt-3 font-robot text-purple-600 drop-shadow-[0_0_10px_rgba(0,0,0,0.2)] z-10">
+    I'm Kim Min-ji (김민지) 🌐
+  </h2>
 
-       <hr>
+  <!-- Deskripsi -->
+  <p class="text-xl max-w-2xl my-6 text-gray-700 z-10 leading-relaxed font-fun">
+    Welcome to my <span class="text-pink-500 font-semibold">Y2K world</span> 💿  
+    full of <span class="text-blue-500">sparkles</span>, <span class="text-purple-500">glow</span>, and 
+    <span class="text-yellow-500">fun vibes</span>. 🚀🌈
+  </p>
 
-        <!-- Contact Section -->
-        <section id="contact" class="min-h-[100vh] flex flex-col justify-center items-center gap-[16px]">
-            <h2 class="text-[28px] font-bold">Contact Me</h2>
-            <form>
-                <div class="mb-{10px}">
-                    <label for="name" class="block mb-{5px}">Name:</label>
-                    <input type="text" id="name" name="name" class="border p-[8px] rounded w-[300px]" required>
-                </div>
-                <div class="mb-{10px}">
-                    <label for="email" class="block mb-{5px}">Email:</label>
-                    <input type="email" id="email" name="email" class="border p-[8px] rounded w-[300px]" required>
-                </div>
-                <div class="mb-{10px}">
-                    <label for="message" class="block mb-{5px}">Message:</label>
-                    <textarea id="message" name="message" class="border p-[8px] rounded w-[300px] h-[100px]" required></textarea>
-                </div>
-                <button type="submit" onclick="validateForm()" 
-                class="bg-blue-500 text-white p-[10px] rounded hover:bg-blue-600">Send Message</button>
-            </form>
-        </section>
-    </main>
-    <hr>
+  <!-- Tombol -->
+  <a href="#profile" 
+    class="bg-gradient-to-r from-pink-400 to-purple-500 text-white px-8 py-4 rounded-full 
+           shadow-lg hover:from-purple-600 hover:to-cyan-400 
+           transition transform hover:scale-105 duration-300 z-10 font-robot text-lg">
+    💾 View My Profile
+  </a>
+
+  <!-- Sparkle shapes -->
+  <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-pink-300 rounded-full opacity-30 blur-3xl animate-float"></div>
+  <div class="absolute top-20 right-1/3 w-48 h-48 bg-purple-300 rounded-full opacity-30 blur-2xl animate-float-slow"></div>
+  <div class="absolute bottom-1/4 left-1/3 w-72 h-72 bg-blue-300 rounded-full opacity-30 blur-3xl animate-float-delayed"></div>
+</section>
+
+
+<!-- Profile Section -->
+<section id="profile" class="min-h-screen flex flex-col justify-center items-center px-6 relative overflow-hidden">
+
+  <!-- Judul -->
+  <h2 class="text-4xl font-robot bg-gradient-to-r from-pink-400 via-purple-400 to-cyan-400 
+             bg-clip-text text-transparent drop-shadow-[0_0_12px_rgba(255,0,255,0.8)] mb-12 text-center">
+    💫 My Profile 💫
+  </h2>
+
+  <!-- Container Foto + Biodata -->
+  <div class="flex flex-col md:flex-row gap-12 items-center z-10">
+
+    <!-- Foto Profil -->
+    <img src="https://hobihepi.com/wp-content/uploads/2024/01/Profil-Minji-NewJeans-Terbaru.png" 
+         alt="Minji NewJeans" 
+         class="w-[300px] md:w-[400px] h-[300px] md:h-[400px] object-cover rounded-xl shadow-[0_0_35px_rgba(0,255,255,0.7)] border-4 border-cyan-400 transition-transform duration-300 hover:scale-105">
+
+    <!-- Biodata Card -->
+    <div class="max-w-lg text-center md:text-left space-y-4 font-fun">
+      <h3 class="text-2xl font-bold text-pink-300 drop-shadow-[0_0_8px_rgba(255,0,255,0.6)]">
+        Minji - NewJeans
+      </h3>
+      <p class="text-base text-purple-100">
+        Minji is a singer, dancer, and visual of NewJeans, known for her elegance, talent, and natural charm. 
+        With her bright aura and strong stage presence, she has quickly become one of the most beloved idols 
+        of the new K-pop generation.
+      </p>
+
+      <!-- Biodata Bubble Box -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
+        <div class="p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-pink-300 shadow-[0_0_15px_rgba(255,0,255,0.4)]">
+          <p class="font-semibold text-cyan-300">👤 Name:</p>
+          <p class="text-white">Kim Min-ji</p>
+        </div>
+        <div class="p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-cyan-300 shadow-[0_0_15px_rgba(0,255,255,0.4)]">
+          <p class="font-semibold text-pink-300">🎂 Age:</p>
+          <p class="text-white">19 Tahun</p>
+        </div>
+        <div class="p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-purple-300 shadow-[0_0_15px_rgba(200,100,255,0.5)]">
+          <p class="font-semibold text-yellow-300">📍 Place and Date of Birth:</p>
+          <p class="text-white">Chuncheon, 7 Mei 2004</p>
+        </div>
+        <div class="p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-yellow-300 shadow-[0_0_15px_rgba(255,255,0,0.5)]">
+          <p class="font-semibold text-purple-300">🎵 Hobby:</p>
+          <p class="text-white">Singing and Dancing</p>
+        </div>
+      </div>
+
+      <!-- Tombol See My Gallery -->
+      <div class="mt-6">
+        <button onclick="openGallery()" 
+                class="px-6 py-2 rounded-full bg-cyan-400 text-white font-semibold hover:bg-cyan-500 transition">
+          See My Gallery
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Background Bulatan Glow -->
+  <div class="absolute top-20 left-10 w-72 h-72 bg-pink-400 rounded-full opacity-25 blur-3xl"></div>
+  <div class="absolute bottom-20 right-10 w-80 h-80 bg-cyan-400 rounded-full opacity-25 blur-3xl"></div>
+</section>
+
+<!-- Gallery Modal -->
+<div id="galleryModal" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50">
+  <div class="bg-white/10 backdrop-blur-lg p-6 rounded-2xl max-w-5xl w-full relative flex flex-col items-center">
+    <!-- Tombol Close -->
+    <button onclick="closeGallery()" class="absolute top-3 right-3 text-white text-3xl hover:text-red-400 transition">×</button>
+
+    <!-- Carousel Image -->
+    <div class="w-full flex justify-center items-center relative mt-4">
+      <button onclick="prevImage()" class="absolute left-0 text-white text-4xl px-4 z-10 hover:text-cyan-400 transition">&lt;</button>
+      <img id="carouselImage" src="" 
+           class="rounded-xl shadow-lg max-h-[500px] object-contain transition-transform duration-500">
+      <button onclick="nextImage()" class="absolute right-0 text-white text-4xl px-4 z-10 hover:text-cyan-400 transition">&gt;</button>
+    </div>
+
+    <!-- Tombol Back to Profile -->
+    <div class="mt-6">
+      <button onclick="closeGallery()" 
+              class="px-6 py-2 rounded-full bg-pink-400 text-white font-semibold hover:bg-pink-500 transition">
+        Back to Profile
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+const images = [
+  "https://upload.wikimedia.org/wikipedia/commons/3/30/Minji_Olens_2024_FW_1.jpg",
+  "https://en.sportschosun.com/images/2024/07/21/photo-new-jins-minji-beautiful-heart-2021/photo-new-jins-minji-beautiful-heart-202101.jpg",
+  "https://kpopping.com/documents/5b/1/250314-NJZ-Instagram-Update-with-MINJI-documents-5.jpeg",
+  "https://cnc-magazine.oramiland.com/parenting/images/317458557_523502839677960_6148608.width-800.format-webp.webp",
+  "https://baro7.com/cdn/shop/files/elle-2025-january-cover-newjeans-minji-type-b-best-kpop-store-151160.jpg?v=1734064384&width=1920",
+];
+
+let currentIndex = 0;
+
+function openGallery() {
+  document.getElementById("galleryModal").classList.remove("hidden");
+  document.getElementById("galleryModal").classList.add("flex");
+  showImage(currentIndex);
+}
+
+function closeGallery() {
+  document.getElementById("galleryModal").classList.add("hidden");
+  document.getElementById("galleryModal").classList.remove("flex");
+}
+
+function showImage(index) {
+  const img = document.getElementById("carouselImage");
+  img.style.transform = 'scale(0.8)';
+  setTimeout(() => {
+    img.src = images[index];
+    img.style.transform = 'scale(1)';
+  }, 150);
+}
+
+function nextImage() {
+  currentIndex = (currentIndex + 1) % images.length;
+  showImage(currentIndex);
+}
+
+function prevImage() {
+  currentIndex = (currentIndex - 1 + images.length) % images.length;
+  showImage(currentIndex);
+}
+</script>
+
+
+ <!-- Projects Section -->
+ <section id="projects" class="min-h-screen flex flex-col justify-center items-center px-6 relative overflow-hidden">
+  <!-- Judul -->
+  <h2 class="text-4xl font-robot bg-gradient-to-r from-cyan-400 via-pink-400 to-purple-400 bg-clip-text text-transparent drop-shadow-[0_0_12px_rgba(255,0,255,0.7)] mb-12">
+    🎧 My Song Project - NewJeans 🎧
+  </h2>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 z-10">
+    <!-- Project 1 -->
+    <div class="p-6 rounded-2xl bg-white/10 backdrop-blur-md border border-pink-300 shadow-[0_0_15px_rgba(255,0,255,0.5)] hover:scale-105 transition">
+      <h3 class="text-xl font-bold text-pink-300 mb-3">Attention</h3>
+      <p class="text-sm text-white mb-4">The debut track that introduced NewJeans to the world with its refreshing sound and stylish vibes.</p>
+      <a href="https://youtu.be/js1CtxSY38I" target="_blank" 
+         class="inline-block px-4 py-2 rounded-full bg-gradient-to-r from-pink-400 to-purple-500 text-white shadow-md hover:from-purple-500 hover:to-cyan-400 transition">
+         ▶ Watch MV
+      </a>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="p-6 rounded-2xl bg-white/10 backdrop-blur-md border border-cyan-300 shadow-[0_0_15px_rgba(0,255,255,0.5)] hover:scale-105 transition">
+      <h3 class="text-xl font-bold text-cyan-300 mb-3">Ditto</h3>
+      <p class="text-sm text-white mb-4">A dreamy, emotional track that became one of their biggest viral hits, touching many hearts worldwide.</p>
+      <a href="https://youtu.be/pSUydWEqKwE" target="_blank" 
+         class="inline-block px-4 py-2 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 text-white shadow-md hover:from-blue-500 hover:to-purple-400 transition">
+         ▶ Watch MV
+      </a>
+    </div>
+
+    <!-- Project 3 -->
+    <div class="p-6 rounded-2xl bg-white/10 backdrop-blur-md border border-purple-300 shadow-[0_0_15px_rgba(200,100,255,0.5)] hover:scale-105 transition">
+      <h3 class="text-xl font-bold text-purple-300 mb-3">Super Shy</h3>
+      <p class="text-sm text-white mb-4">A playful, energetic song that went super viral on TikTok with its catchy choreography and vibe.</p>
+      <a href="https://youtu.be/ArmDp-zijuc" target="_blank" 
+         class="inline-block px-4 py-2 rounded-full bg-gradient-to-r from-purple-400 to-pink-400 text-white shadow-md hover:from-pink-500 hover:to-cyan-400 transition">
+         ▶ Watch MV
+      </a>
+    </div>
+  </div>
+
+  <!-- Background Bulatan Glow -->
+  <div class="absolute top-28 left-10 w-80 h-80 bg-pink-400 rounded-full opacity-20 blur-3xl"></div>
+  <div class="absolute bottom-20 right-10 w-96 h-96 bg-cyan-400 rounded-full opacity-20 blur-3xl"></div>
+</section>
+
+    <!-- Contact Section -->
+<section id="contact" class="min-h-screen flex flex-col justify-center items-center px-6 relative overflow-hidden">
+  <!-- Judul -->
+  <h2 class="text-4xl font-robot bg-gradient-to-r from-pink-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent drop-shadow-[0_0_12px_rgba(255,0,255,0.7)] mb-10 z-10">
+     <p>Message Us</p>
+  </h2>
+
+  <!-- Form -->
+  <form class="space-y-6 bg-white/10 backdrop-blur-lg p-8 rounded-2xl border border-pink-300 shadow-[0_0_25px_rgba(255,0,255,0.5)] z-10">
+    <div>
+      <label for="name" class="block mb-2 font-medium text-pink-300">Name:</label>
+      <input type="text" id="name" name="name" 
+             class="w-[300px] p-3 rounded-md border border-pink-400 bg-white/20 text-white placeholder-gray-300 focus:ring-2 focus:ring-pink-400 outline-none" 
+             placeholder="Enter your name" required>
+    </div>
+
+    <div>
+      <label for="email" class="block mb-2 font-medium text-cyan-300">Email:</label>
+      <input type="email" id="email" name="email" 
+             class="w-[300px] p-3 rounded-md border border-cyan-400 bg-white/20 text-white placeholder-gray-300 focus:ring-2 focus:ring-cyan-400 outline-none" 
+             placeholder="Enter your email" required>
+    </div>
+
+    <div>
+      <label for="message" class="block mb-2 font-medium text-purple-300">Message:</label>
+      <textarea id="message" name="message" 
+                class="w-[300px] h-[120px] p-3 rounded-md border border-purple-400 bg-white/20 text-white placeholder-gray-300 focus:ring-2 focus:ring-purple-400 outline-none" 
+                placeholder="Write your message..." required></textarea>
+    </div>
+
+    <button type="submit" onclick="validateForm()" 
+            class="w-full bg-gradient-to-r from-pink-400 via-purple-400 to-cyan-400 text-white px-6 py-3 rounded-full font-bold shadow-[0_0_15px_rgba(255,0,255,0.6)] hover:scale-105 transition">
+      🚀 Send Message
+    </button>
+  </form>
+
+  <!-- Background Glow -->
+  <div class="absolute top-20 left-10 w-72 h-72 bg-pink-400 rounded-full opacity-20 blur-3xl"></div>
+  <div class="absolute bottom-16 right-10 w-80 h-80 bg-cyan-400 rounded-full opacity-20 blur-3xl"></div>
+</section>
+
+
 
 <!-- footer content -->
     <footer>
-        <div class="text-center p-[16px] bg-gray-200">
-            <p class="text-[14px]">&copy; 2025 Syakila Zahraini Cahyadi. All rights reserved.</p>
+        <div class="text-center p-[16px]" style="background: linear-gradient(90deg, #a1c1de, #9416b4);">
+        <p class="text-[14px]">&copy; 2025 Syakila Zahraini Cahyadi. All rights reserved.</p>
         </div>
     </footer>
     

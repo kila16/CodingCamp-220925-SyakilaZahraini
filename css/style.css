@@ -1,14 +1,47 @@
 .logo {
     height: 75px;
-    background-color: lightskyblue;
     width: 75px;
-    border-radius: 50%;
-    background-image: url(https://upload.wikimedia.org/wikipedia/commons/c/cf/Logo_enhypen.jpg);
+    border-radius: 25%;
+    background-image: url("../images/syakila.jpg");
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
+    border: 3px solid white;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    }
+
+    .logo:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.4);
 }
 
 .main-header {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;            
+  padding: 15px 30px;            
+  background: linear-gradient(90deg, #a1c1de, #9416b4); 
+  color: white;                   
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); 
+  position: sticky;               
+  top: 0;
+  z-index: 1000;
 }
+
+ @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+  }
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  .animate-float-delayed {
+    animation: float 8s ease-in-out infinite;
+    animation-delay: 2s;
+  }
+  .animate-float-slow {
+    animation: float 10s ease-in-out infinite;
+  }
